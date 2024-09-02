@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+
+import img_eepyFox from "../../.img/eepyfomx.png";
+import img_foregroundrock from "../../.img/background/foregroundrock.png";
+import img_midground_top from "../../.img/background/midground_top.png";
+import img_midground from "../../.img/background/midground.png";
+import img_bgf_trees from "../../.img/background/bg_f_trees.png";
+import img_bgf_mountains from "../../.img/background/bg_f_mountains.png";
+
+
+---
+<div class="landing-background">
+    <div class="eepy-fomx-container">
+        <div class="eepy-fomx-vertical">
+            <Image src={img_eepyFox} alt="eepy fomx" class="eepy-fomx bimg" loading="eager">
+        </div>
+    </div>
+    <div class = "grounds-container">
+        <div class="grounds-wrapper">   
+            <Image alt="" src={img_foregroundrock} class="foreground bbimg" loading="eager"/>
+            <Image alt="" src={img_midground} class="midground bbimg" loading="eager"/>
+            <Image alt="" src={img_midground_top} class="midground-top bbimg" loading="eager"/>
+            <Image alt="" src={img_bgf_trees} class="bg-f-trees bbimg" loading="eager"/>
+            <Image alt="" src={img_bgf_mountains} class="bg-f-mountains bbimg" loading="eager"/>
+        </div>
+    </div>
+</div>
+<style>
+    .bimg {
+        width: inherit;
+        height: inherit;
+        position: relative;
+    }
+    .bbimg {
+        width: auto;
+        height: auto;
+        position: relative;
+        object-fit: contain; 
+    }
+    @media (min-aspect-ratio: 16/9) {
+        .bbimg {
+            width: 100vw;
+            height: auto;
+        }
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+        .bbimg {
+            width: auto;
+            height: 100vh;
+        }
+    }
+    .foreground {
+        transform: translateY(calc((var(--scroll-y) * 0.6)));
+        z-index: -100;
+    }
+    .midground {
+        transform: translateY(calc(-100% + (var(--scroll-y) * 0.9)));
+        z-index: -101;
+    }
+    .midground-top {
+        transform: translateY(calc(-200% + (var(--scroll-y) * 0.85)));
+        z-index: -98;
+    }
+    .bg-f-trees {
+        transform: translateY(calc(-300% + (var(--scroll-y) * 0.93)));
+        z-index: -105;
+
+    }
+    .bg-f-mountains {
+        transform: translateY(calc(-400% + (var(--scroll-y) * 0.96)));
+        z-index: -110;
+    }
+    .eepy-fomx {
+        z-index: -80;
+    }
+    .grounds-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+    .grounds-wrapper {
+        width: 100%;
+        height: 100%;
+		background-color: #ff9f9f22;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .landing-background {
+        width: 100vw;
+        height: var(--landing-height);
+		background-color: #ffffff;
+        z-index:-100;
+        transform: translateY(calc(var(--landing-height) * -1));
+        position: relative;
+    }
+    .eepy-fomx-container {
+        position: absolute;
+        height: var(--landing-height);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: min(60vw);
+        transform: translateY(calc((var(--scroll-y) * 0.7)));
+    }
+    .eepy-fomx-vertical {
+        width: auto;
+        height: 105vh;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+</style>

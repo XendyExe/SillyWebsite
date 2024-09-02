@@ -1,0 +1,42 @@
+---
+import LandingContent from "./LandingContent.astro"
+import LandingBackground from "./LandingBackground.astro"
+---
+
+<div class="landing-container-container">
+    <div class="landing-container">
+        <div class="landing-wrapper"> 
+            <div class="landing-buffer"/>
+            <div class="landing">
+                <LandingContent/>
+            </div>
+        </div>
+    </div>
+    <LandingBackground/>
+</div>
+
+<style>
+    .landing-container-container {
+        height: var(--landing-height);
+        overflow: hidden;
+		position:relative;
+    }
+	.landing-container {
+		width: 100%;
+		height: var(--landing-height);
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+	}
+	.landing-wrapper {
+		width: 100%;
+		display: flex;
+	}
+	.landing-buffer {
+		width: calc(50% + 6rem);
+	}
+	.landing {
+		width: calc(50% - 6rem);
+	}
+</style>
