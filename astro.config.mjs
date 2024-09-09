@@ -1,7 +1,5 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  // other configurations
-  output: 'static',
-  base: '/SillyWebsite/'
-});
+  site: 'https://xendy.nya.pub/'
+})

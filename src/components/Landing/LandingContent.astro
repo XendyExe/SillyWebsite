@@ -1,25 +1,155 @@
 ---
+import Youtube from "../svgs/Youtube.astro";
+import Discord from "../svgs/Discord.astro";
+import XendyCursiveSVG from "./../svgs/XendyCursiveSVG.astro";
+import Strawberry from "../svgs/Strawberry.astro";
+import Heart from "../svgs/Heart.astro";
+import Bookmark from "../svgs/Bookmark.astro";
+import Flower from "../svgs/Flower.astro";
+
 
 ---
 
-<div class="landing-content">
-    Moving this textbox here took two hours
-	<br>
-	<br>
-	<br>
-	this background sucks as i have not finished photoshoping
-	<br>
-	<br>
-	the paralax took two more horus
+<div>
+	<div class="landing-content">
+		<div class="textcontainer">
+			<div class=title>
+				<div class="cursive-wrapper"><XendyCursiveSVG/></div>
+				<div class="intro-text"> Hi~ I'm </div>
+			</div>
+			<div class="linecontainer"><div class="line" style="width: 400px; border-bottom: solid black 3px;"/></div>
+			<div class="linecontainer"><div class="line" style="width: 350px; border-bottom: dashed black 3px; margin-top: 3px;"/></div>
+			<div class="content">
+				In the land of Whiskeronia, where the clouds are made of cotton candy, fluffy cats ruled with gentle purrs and twitchy tails. Queen Purrington decreed that all naps should last no less than 12 hours, with mandatory belly rub breaks. The streets were paved with yarn, and kittens frolicked in the endless fields of catnip. Meanwhile, Sir Whiskers McFluff practiced his graceful leaps from cushion to cushion, while Duke Pawsalot hosted tea parties with tiny cups filled with warm milk. At dusk, the sky turned into a giant blanket, and every cat curled up in the softest corners of the universe, dreaming of endless snacks.
+			</div>
+			<div class="links">
+				<div class="linecontainer"><div class="line" style="width: 400px; border-bottom: dashed black 3px;"/></div>
+				<div class="button-container">	
+					<div class="button youtube-button">
+						<Youtube/> <span style="left: -17px; position: relative;">Youtube</span>
+					</div>
+					<div class="button discord-button">
+						<Discord/> <span style="left: -23px; position: relative;">Discord</span>
+					</div>
+				</div>
+				<div class="more-button"> 
+	
+				</div>
+			</div>
+		</div>
+		<div class="background"> 
+	
+		</div>
+	</div>
+	<Strawberry class="wtl content-decal" style="width: 60px; height: 60px; transform: translate(-30px, calc(var(--transformY) - 400px)) rotate(5deg)"/>
+	<Strawberry class="wtl content-decal" style="width: 60px; height: 60px; transform: translate(-30px, calc(var(--transformY) - 320px)) rotate(-92deg)"/>
+	<Strawberry class="wtl content-decal" style="width: 60px; height: 60px; transform: translate(-30px, calc(var(--transformY) - 240px)) rotate(9deg)"/>
+	<Strawberry class="wtl content-decal" style="width: 60px; height: 60px; transform: translate(-30px, calc(var(--transformY) - 160px)) rotate(-87deg)"/>
+	<Heart class="wtl content-decal" style="width: 120px; height: 120px; transform: translate(-40px, calc(var(--transformY) - 60px)) rotate(40deg);"/>
+	<Bookmark class="wtl content-decal" style="width: 120px; height: 120px; transform: translate(390px, calc(var(--transformY) - 110px))"/>
+	<Flower class="wtl content-decal" style="width: 150px; height: 150px; transform: translate(400px, calc(var(--transformY) - 550px)) rotate(10deg);"/>
 </div>
-
+<style is:global> 
+	.content-decal {
+		--transformY: calc((var(--scroll-y) * 0.8));
+		z-index: 9000;
+		position:absolute;
+	}
+</style>
 <style>
+	.more-button {
+		height: 48px;
+		width: 100%;
+		background-color: rgb(241, 241, 241);
+		border-radius: 9999px;
+		margin-top: 8px;
+	}
+	.button {
+		height: 38px;
+		width: 46%;
+		border-radius: 9999px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 28px;
+	}
+	.youtube-button {
+		background: rgb(255,255,255);
+		background: linear-gradient(123deg, rgba(255,255,255,1) 0%, rgba(255,168,168,1) 100%);
+		border: rgb(250, 156, 156) solid 3px;
+	}
+	.discord-button {
+		background: rgb(255,255,255);
+		background: linear-gradient(20deg, #5967e7 0%, rgba(223,226,255,1) 100%);
+		border: #333ea7 solid 3px;
+		color: white;
+	}
+	.button-container {
+		margin-top: 8px;
+		width: 100%;
+		height: 48px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
     .landing-content {
-		width: calc(100% - (var(--padding) * 4));
-		height: 50vh;
+		--radius: 24px;
+		width: 500px;
+		height: 500px;
 		background-color: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		padding: 16px;
+		background: linear-gradient(180deg, rgb(255, 255, 255) 40%, rgb(255, 249, 235) 100%);
+		border-radius: var(--radius);
+		box-shadow: 0 0 3rem 0 #E6E6E6;
+
         transform: translateY(calc((var(--scroll-y) * 0.8)));
+	}
+	.linecontainer {
+		width: 100%;
+		height: fit-content;
+		display:flex;
+		justify-content: center;
+	}
+	.textcontainer {
+		--margins: 35px;
+		width: calc(100% - (var(--margins) * 2));
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-left: var(--margins);
+		margin-right: var(--margins);
+	}
+	.intro-text {
+		transform: translateY(-52px);
+	}
+	.title {
+		font-size: 26px;
+		margin-top: 24px;
+		height: 50px;
+	}
+	.cursive-wrapper {
+		display:flex;
+		justify-content: center;
+		position:relative;
+		z-index: 10000;
+	}
+
+	.content {
+		flex-grow: 1;
+		margin-top: 5px;
+	}
+
+	.links {
+		align-self: baseline;
+		bottom: 0;
+		position: relative;
+		width: 100%;
+		height: 123px;
+		border-bottom-left-radius: var(--radius);
+		border-bottom-right-radius: var(--radius);
+		border-top-left-radius: 16px;
+		border-top-right-radius: 16px;
+		overflow: hidden;
+
 	}
 </style>

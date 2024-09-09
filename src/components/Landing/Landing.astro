@@ -6,7 +6,6 @@ import LandingBackground from "./LandingBackground.astro"
 <div class="landing-container-container">
     <div class="landing-container">
         <div class="landing-wrapper"> 
-            <div class="landing-buffer"/>
             <div class="landing">
                 <LandingContent/>
             </div>
@@ -18,8 +17,9 @@ import LandingBackground from "./LandingBackground.astro"
 <style>
     .landing-container-container {
         height: var(--landing-height);
-        overflow: hidden;
 		position:relative;
+		border-bottom: solid #ffffff 10px;
+        overflow: hidden;
     }
 	.landing-container {
 		width: 100%;
@@ -32,11 +32,11 @@ import LandingBackground from "./LandingBackground.astro"
 	.landing-wrapper {
 		width: 100%;
 		display: flex;
-	}
-	.landing-buffer {
-		width: calc(50% + 6rem);
+		justify-content: flex-end;
 	}
 	.landing {
-		width: calc(50% - 6rem);
+		width: 50%; 
+		display: flex;
+		justify-content: center;
 	}
 </style>

@@ -20,7 +20,52 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-		<script src="../src/scripts/main.ts" defer></script>
+
+		<script> 
+			let landing = document.querySelector(".landing-container")!;
+			const header = document.querySelector(".header")!;
+
+			let header_visable = false;
+			let landing_visable = false;
+			let cursor_top = false;
+			function updateHeaderPosition() {
+				let hv = landing_visable || cursor_top;
+				if (header_visable != hv) {
+					header_visable = hv;
+					header.classList.toggle("header-active");
+				}
+			}
+			function updateScrollVariable() {
+				if (landing == null) {
+					landing = document.querySelector(".landing-container")!;
+					return;
+				}
+				const scrollY = window.scrollY;
+				document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+				const landing_rect = landing.getBoundingClientRect();
+				landing_visable = landing_rect.bottom < 200;
+				updateHeaderPosition();
+			}
+
+			function l() {
+				requestAnimationFrame(l);
+				updateScrollVariable();
+			}
+			l();
+			window.addEventListener('scroll', (event) => {	
+				updateScrollVariable();
+			})
+			window.addEventListener('mousemove', (event) => {
+				cursor_top = event.pageY < 128;
+				updateHeaderPosition();
+			})
+
+			function checkVisible(elm: HTMLDivElement) {
+				var rect = elm.getBoundingClientRect();
+				var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+				return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+			}
+		</script>
 	</head>
 	<body>
 		<Header/>
